@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.MILESWEB_SSH_KEY }}
           port: 22
           script: |
-            cd ~/laravel_app
+            cd ~/stepup-exponit
             git pull origin main
             composer install --no-dev --optimize-autoloader --no-interaction
             php artisan migrate --force
