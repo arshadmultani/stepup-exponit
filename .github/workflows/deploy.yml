@@ -18,6 +18,7 @@ jobs:
           host: ${{ secrets.MILESWEB_HOST }}
           username: ${{ secrets.MILESWEB_USER }}
           key: ${{ secrets.MILESWEB_SSH_KEY }}
+          port: 22
           script: |
             cd ~/laravel_app
             git pull origin main
