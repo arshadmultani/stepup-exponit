@@ -15,15 +15,15 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.MILESWEB_HOST }}
+          username: ${{ secrets.MILESWEB_USER }}
+          key: ${{ secrets.MILESWEB_SSH_KEY }}
           script: |
-            cd ${{ secrets.APP_PATH }}
+            cd ~/laravel_app
             git pull origin main
-            composer install --no-dev --optimize-autoloader
+            composer install --no-dev --optimize-autoloader --no-interaction
             php artisan migrate --force
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-            echo "Deployed at $(date)"
+            echo "✅ Deployed at $(date)"
