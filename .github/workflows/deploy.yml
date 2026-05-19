@@ -1,5 +1,3 @@
-# .github/workflows/deploy.yml
-
 name: Deploy to MilesWeb
 
 on:
@@ -18,7 +16,7 @@ jobs:
           host: ${{ secrets.MILESWEB_HOST }}
           username: ${{ secrets.MILESWEB_USER }}
           key: ${{ secrets.MILESWEB_SSH_KEY }}
-          port: 22
+          port: 22999
           script: |
             cd ~/stepup-exponit
             git pull origin main
