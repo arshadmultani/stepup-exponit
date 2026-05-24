@@ -113,7 +113,7 @@
                                 class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-6">
                                 <x-heroicon-o-heart class="w-6 h-6" />
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">CARdiology</h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">CAR indo logy</h3>
                             <p class="text-gray-500 text-sm">Advanced therapeutic solutions for critical
                                 cardiovascular
                                 wellness and care.</p>
