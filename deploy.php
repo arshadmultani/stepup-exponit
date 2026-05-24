@@ -71,3 +71,6 @@ before('deploy:update_code', function () {
 before('deploy:publish', 'version:bump');
 
 after('deploy:failed', 'deploy:unlock');
+
+after('deploy:cleanup', 'artisan:cache:clear');
+after('deploy:cleanup', 'artisan:optimize');
