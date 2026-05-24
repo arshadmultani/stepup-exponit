@@ -30,6 +30,7 @@ host('exponit.com')
     ->set('remote_user', 'exponit')
     ->set('deploy_path', '~/exponitlabs')
     ->set('port', 22999)
+    ->setIdentityFile('~/.ssh/cpanel_deploy')
     ->set('writable_mode', 'skip');
 
 // Hooks
