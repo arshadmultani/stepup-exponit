@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -51,4 +50,4 @@ Route::post('/deploy-webhook', function (Request $request) {
 
     return response($failed ? '❌ Deploy had errors — check logs' : '✅ Deployed', 200);
 
-})->withoutMiddleware([VerifyCsrfToken::class]);
+});
