@@ -12,6 +12,7 @@ set('writable_mode', 'chmod');
 
 set('shared_files', [
     '.env',
+    'version.txt',
 ]);
 set('shared_dirs', [
     'storage',
@@ -33,6 +34,31 @@ host('exponit.com')
     ->setIdentityFile('~/.ssh/cpanel_deploy')
     ->set('writable_mode', 'skip');
 
+// Version Bumping
+task('version:bump', function () {
+
+    $path = '{{deploy_path}}/shared/version.txt';
+
+    $current = trim(run("
+        if [ -f $path ]; then
+            cat $path
+        else
+            echo 0.000
+        fi
+    "));
+
+    $next = number_format(
+        ((float) $current) + 0.001,
+        3,
+        '.',
+        ''
+    );
+
+    run("echo '$next' > $path");
+
+    writeln("App version: $next");
+});
+
 // Hooks
 
 before('deploy:update_code', function () {
@@ -42,5 +68,6 @@ before('deploy:update_code', function () {
     runLocally('npm run build');
 
 });
+before('deploy:publish', 'version:bump');
 
 after('deploy:failed', 'deploy:unlock');
