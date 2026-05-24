@@ -20,6 +20,10 @@ set('writable_dirs', [
     'storage',
     'bootstrap/cache',
 ]);
+
+set('copy_dirs', [
+    'public/build',
+]);
 // Hosts
 
 host('exponit.com')
@@ -29,5 +33,13 @@ host('exponit.com')
     ->set('writable_mode', 'skip');
 
 // Hooks
+
+before('deploy:update_code', function () {
+
+    runLocally('npm ci');
+
+    runLocally('npm run build');
+
+});
 
 after('deploy:failed', 'deploy:unlock');
