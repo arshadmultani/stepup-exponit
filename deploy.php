@@ -81,3 +81,11 @@ after('deploy:failed', 'deploy:unlock');
 
 after('deploy:cleanup', 'artisan:cache:clear');
 after('deploy:cleanup', 'artisan:optimize');
+
+after('version:bump', 'version:sync_local');
+
+task('version:sync_local', function () {
+    $version = trim(run('cat {{deploy_path}}/shared/version.txt'));
+    runLocally("echo '$version' > version.txt");
+    writeln("Local version.txt synced to: $version");
+});

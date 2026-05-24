@@ -42,6 +42,6 @@ new class extends Component {};
             medical advice.
         </p>
         <p>&copy; 2026 Exponit Labs. All rights reserved. Confidential — Internal Use Only.</p>
-        <p>v{{ config('version.number') }}</p>
+        <p>ver.{{ config('version.number') }}</p>
     </div>
 </footer>
