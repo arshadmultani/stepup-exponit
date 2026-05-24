@@ -8,6 +8,8 @@ require 'recipe/laravel.php';
 
 set('repository', 'https://github.com/arshadmultani/exponitlabs.git');
 
+set('keep_releases', 3);
+
 set('writable_mode', 'chmod');
 
 set('shared_files', [
@@ -25,6 +27,11 @@ set('writable_dirs', [
 set('copy_dirs', [
     'public/build',
 ]);
+
+set(
+    'composer_options',
+    '--prefer-dist --no-dev --optimize-autoloader'
+);
 // Hosts
 
 host('exponit.com')
