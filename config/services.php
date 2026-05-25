@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'telegram_backup' => [
+        'token' => env('TELEGRAM_BACKUP_BOT_TOKEN'),
+        'chat_id' => env('TELEGRAM_BACKUP_CHAT_ID'),
+    ],
+
 ];
